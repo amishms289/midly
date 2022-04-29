@@ -39,6 +39,8 @@ class SocialLoginController extends Controller
                         'name' => $social_user->getName(),
                         'avatar' => $social_user->getAvatar(),
                         'spotify_id' => $social_user->getId(),
+                        'sp_token' => $social_user->token,
+                        'sp_refresh_token' => $social_user->refreshToken,
                     ]);
                 }
 
@@ -54,6 +56,8 @@ class SocialLoginController extends Controller
                     'password' => bcrypt('Midly@123'),
                     'avatar' => $social_user->getAvatar(),
                     'spotify_id' => $social_user->getId(),
+                    'sp_token' => $social_user->token,
+                    'sp_refresh_token' => $social_user->refreshToken,
                 ]);
             }
 

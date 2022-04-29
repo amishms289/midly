@@ -16,6 +16,8 @@ class AddColumnsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('avatar')->nullable()->after('password');
             $table->string('spotify_id')->nullable()->after('avatar');
+            $table->string('sp_token')->nullable()->after('spotify_id');
+            $table->string('sp_refresh_token')->nullable()->after('sp_token');
         });
     }
 
@@ -27,7 +29,7 @@ class AddColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['spotify_id', 'avatar']);
+            $table->dropColumn(['sp_refresh_token', 'sp_token', 'spotify_id', 'avatar']);
         });
     }
 }
