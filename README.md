@@ -13,6 +13,13 @@
     - SPOTIFY_REDIRECT_URI=<SPOTIFY_REDIRECT_URI>
 - Run below command to run project on browser
     - php artisan serve
+    
+
+- Get clone from GIT
+- Open terminal and goto project root directory
+- Run below commands step by step
+    - composer install
+- Set below variables to .env file
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
