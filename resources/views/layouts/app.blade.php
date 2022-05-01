@@ -56,6 +56,11 @@
                                 $userId = Auth()->user()->id;
                             @endphp
                             <li class="nav-item">
+                                <a id="" class="nav-link" href="{{ route('user.view-listning', [$userId]) }}">
+                                    View User Listning
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a id="" class="nav-link" href="{{ route('user.sync-listning', [$userId]) }}">
                                     Synk User Listning
                                 </a>

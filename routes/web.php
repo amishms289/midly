@@ -33,4 +33,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/profile/{user}', [UserController::class, 'profile'])->name('user.profile');
     Route::get('/user/sync-listning/{user}', [UserController::class, 'syncListning'])->name('user.sync-listning');
+    Route::get('/user/view-listning/{user}', [UserController::class, 'viewListning'])->name('user.view-listning');
 });

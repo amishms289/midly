@@ -30,48 +30,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function syncListningOld(User $user)
-    {
-        $provider = $provider ?? 'spotify';
-        // $social_user = Socialite::driver($provider)->user();
-        // dd($social_user);
-        $spotify = new Spotify([]);
-        // $a = $spotify->artist('4ZPpGYjIb5caOhHhQANO8P')->get();
-        // $aa = $spotify->userPlaylists($user->spoti)->get();
-
-        $endpoint = '/me/player/recently-played';
-        $request = resolve(SpotifyRequest::class);
-
-        $options = [
-            'scope' => [
-                'user-read-email',
-                'user-read-recently-played'
-            ],
-        ];
-
-        $parameters = [
-
-            'response_type' => 'code',
-            'scope' => isset($options['scope']) ? implode(' ', $options['scope']) : null,
-            'show_dialog' => !empty($options['show_dialog']) ? 'true' : null,
-            'state' => $options['state'] ?? null,
-        ];
-
-        $response = $request->get('/me/player/recently-played', $parameters);
-        dd($response);
-        // $as = new SpotifySeed();
-        // $as->get();
-
-
-        // $data = new PendingRequest($endpoint);
-
-        // dd($data);
-
-        return view('user.profile', [
-            'user' => $user
-        ]);
-    }
-
     public function syncListning(User $user)
     {
         $spotifyURL = 'https://api.spotify.com/v1/';
@@ -118,5 +76,14 @@ class UserController extends Controller
         }
 
         return redirect('home');
+    }
+
+    public function viewListning(User $user)
+    {
+        $listingData = UsersListening::where('user_id', $user->id)->paginate(10);
+        return view('user.listings', [
+            'listingData' => $listingData,
+            'user' => $user
+        ]);
     }
 }
