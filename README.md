@@ -3,17 +3,22 @@
     
 - Get clone from GIT
 - Open terminal and goto project root directory
+- Copy .env.example file and rename it .env file & add your database related changes to it
+- Set below variables to .env file
+    - SPOTIFY_API_URL=<SPOTIFY_API_URL>
+    - SPOTIFY_CLIENT_ID=<SPOTIFY_CLIENT_ID>
+    - SPOTIFY_CLIENT_SECRET=<SPOTIFY_CLIENT_SECRET>
+    - SPOTIFY_REDIRECT_URI=<SPOTIFY_REDIRECT_URI>
 - Run below commands step by step
     - composer install
     - php artisan ui bootstrap --auth
     - npm install && npm run dev
     - php artisan migrate
-- Set below variables to .env file
-    - SPOTIFY_CLIENT_ID=<SPOTIFY_CLIENT_ID>
-    - SPOTIFY_CLIENT_SECRET=<SPOTIFY_CLIENT_SECRET>
-    - SPOTIFY_REDIRECT_URI=<SPOTIFY_REDIRECT_URI>
 - Run below command to run project on browser
     - php artisan serve
+- You can access project in browser using URL: http://127.0.0.1:8000/
+- I have scheduled daily cronjob to sync and store user's listining in our database. you can check it manually by running below command in project's root directory.
+    - php artisan sync:listning
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>

@@ -39,8 +39,8 @@ class SyncListning extends Command
      */
     public function handle()
     {
-        // $sync = new UserController();
-        // $sync->apiSpotify();
+        $sync = new UserController();
+        $sync->cronSyncListning();
         \Log::info("Cron is working fine!");
     }
 }
